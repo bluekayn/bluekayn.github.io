@@ -1,0 +1,236 @@
+/* https://coolors.co/50514f-f25f5c-ffe066-247ba0-70c1b3 */
+
+
+
+:root {
+  --c1-fg: #ffffff;
+  --c1-bg: #F25F5C;
+  --c1-off-fg: #50514f;
+  --c1-off-bg: #F7A2A1;
+  --c1-on-fg: #ffffff;
+  --c1-on-bg: #AA100E;
+  --c1-hover-fg: #ffffff;
+  --c1-hover-bg: #f15855;
+  --c1-plot: #f25f5c;
+
+  --c2-fg: #ffffff;
+  --c2-bg: #247BA0;
+  --c2-off-fg: #50514f;
+  --c2-off-bg: #85cae5;
+  --c2-on-fg: #ffffff;
+  --c2-on-bg: #174d64;
+  --c2-hover-fg: #ffffff;
+  --c2-hover-bg: #2d99c8;
+  --c2-plot: #247ba0;
+
+  --fg: #ffffff;
+  --bg: #c2c2c1;
+
+  --container-fg: #000000;
+  --container-bg: #ebebea;
+
+  --tooltip-fg: #000000;
+  --tooltip-bg: #ffffff;
+
+  --header-fg: #ffffff;
+  --header-bg: #50514f;
+  --header-border: #1f1f1e;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+}
+
+#copyrightFooter {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#year {
+  display: inline-block;
+}
+
+
+#tooltip {
+  padding: 0.5em;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-fg);
+  border: 1px solid var(--tooltip-fg);
+  box-shadow: 1px 1px var(--tooltip-fg);
+}
+
+* {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+
+.container {
+  background: var(--container-bg);
+  box-shadow: 1px 1px var(--container-fg);
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 2em;
+  text-align: center;
+  margin-top: 2em;
+}
+
+.navbar {
+  text-align: center;
+  padding: 0.5em;
+  font-size: 2em;
+  border-bottom: 5px solid var(--header-border);
+  background: var(--header-bg);
+  color: var(--header-fg);
+}
+
+#controller1, #controller1 > .row > .header {
+  color: var(--c1-fg);
+  background: var(--c1-bg);
+}
+
+#controller2, #controller2> .row > .header {
+  color: var(--c2-fg);
+  background: var(--c2-bg);
+}
+
+#controller1 > .row > .header > .items {
+  color: var(--c1-off-fg);
+  background: var(--c1-off-bg);
+}
+
+#controller2 > .row > .header > .items {
+  color: var(--c2-off-fg);
+  background: var(--c3-off-bg);
+}
+
+#controller1 .items label {
+  color: var(--c1-off-fg);
+  background: var(--c1-off-bg);
+}
+
+#controller2 .items label {
+  color: var(--c2-off-fg);
+  background: var(--c2-off-bg);
+}
+
+#controller1 .slider {
+  background: var(--c1-off-bg);
+}
+
+#controller1 .slider::-webkit-slider-thumb {
+  background: var(--c1-on-fg);
+  box-shadow: -10000px 0 0 10000px var(--c1-on-bg);
+}
+
+#controller2 .slider {
+  background: var(--c2-off-bg);
+}
+
+#controller2 .slider::-webkit-slider-thumb {
+  background: var(--c2-on-fg);
+  box-shadow: -10000px 0 0 10000px var(--c2-on-bg);
+}
+
+input[type="radio"], input[type="checkbox"], input[type="button"] {
+  display: none;
+}
+
+#controller1 input[type="radio"]:checked + label,
+#controller1 input[type="checkbox"]:checked + label,
+#controller1 input[type="button"]:active + label {
+  background: var(--c1-on-bg);
+  color: var(--c1-on-fg);
+}
+
+#controller2 input[type="radio"]:checked + label,
+#controller2 input[type="checkbox"]:checked + label,
+#controller2 input[type="button"]:active + label {
+  background: var(--c2-on-bg);
+  color: var(--c2-on-fg);
+}
+
+#controller1 .items label:hover {
+  background: var(--c1-hover-bg);
+  color: var(--c1-hover-fg);
+}
+
+#controller2 .items label:hover {
+  background: var(--c2-hover-bg);
+  color: var(--c2-hover-fg);
+}
+
+.controller {
+  display: inline-block;
+  width: 46.5%;
+  padding: 1%;
+  text-align: center;
+  box-shadow: 2px 2px var(--controller-fg);
+  white-space: nowrap;
+  margin: 1% 0%;
+  overflow: hidden;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.controller:not(:last-child) {
+  margin-right: 1%;
+}
+
+.controllers {
+  text-align: center;
+}
+
+.controller > .row {
+  display: flex;
+}
+
+.controller > .row > .header {
+  width: 66.66%;
+  display: inline-block;
+  text-align: left;
+  text-shadow: 1px 1px black;
+  white-space: nowrap;
+}
+
+.controller > .row:not(:last-child) {
+  margin: 0em 0em 0.5em 0em;
+}
+
+.items {
+  display: flex;
+  width: 451px;
+  height: 15px;
+  box-shadow: 2px 2px black;
+}
+
+.items label {
+  width: 100%;
+  display: inline-block;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  margin: 0;
+  cursor: pointer; /* Cursor on hover */
+}

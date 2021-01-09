@@ -1,0 +1,196 @@
+<html lang="en">
+<head>
+  <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Domine">
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  <script src="source.js"></script>
+</head>
+<body>
+  <div class="navbar">
+    shaco.gg
+  </div>
+<div class="container" id="container">
+  <div class="controllers">
+    <div class='controller' id="controller1" oninput="update()">
+      <div class='row'>
+        <div class='header'>
+         Level
+        </div><div class='items'>
+          <input type="radio" name="level1" value="1" id="level1_1" checked/>
+          <label for="level1_1">1</label>
+          <input type="radio" name="level1" value="2" id="level1_2"/>
+          <label for="level1_2">2</label>
+          <input type="radio" name="level1" value="3" id="level1_3"/>
+          <label for="level1_3">3</label>
+          <input type="radio" name="level1" value="4" id="level1_4"/>
+          <label for="level1_4">4</label>
+          <input type="radio" name="level1" value="5" id="level1_5"/>
+          <label for="level1_5">5</label>
+          <input type="radio" name="level1" value="6" id="level1_6"/>
+          <label for="level1_6">6</label>
+          <input type="radio" name="level1" value="7" id="level1_7"/>
+          <label for="level1_7">7</label>
+          <input type="radio" name="level1" value="8" id="level1_8"/>
+          <label for="level1_8">8</label>
+          <input type="radio" name="level1" value="9" id="level1_9"/>
+          <label for="level1_9">9</label>
+        </div>
+      </div>
+       <div class='row'>
+       <div class='header' id="headerCost1">
+          Cost
+       </div><div class='items'>
+          <input type="radio" name="cost1" value="1" id="cost1_1" checked/>
+          <label for="cost1_1">1</label>
+          <input type="radio" name="cost1" value="2" id="cost1_2"/>
+          <label for="cost1_2">2</label>
+          <input type="radio" name="cost1" value="3" id="cost1_3"/>
+          <label for="cost1_3">3</label>
+          <input type="radio" name="cost1" value="4" id="cost1_4"/>
+          <label for="cost1_4">4</label>
+          <input type="radio" name="cost1" value="5" id="cost1_5"/>
+          <label for="cost1_5">5</label>
+        </div>
+      </div>
+       <div class='row'>
+       <div class='header'>
+         Star Level
+        </div><div class='items'>
+          <input type="radio" name="star1" value="1" id="star1_1" checked/>
+          <label for="star1_1">1</label>
+          <input type="radio" name="star1" value="2" id="star1_2"/>
+          <label for="star1_2">2</label>
+          <input type="radio" name="star1" value="3" id="star1_3"/>
+          <label for="star1_3">3</label>
+        </div>
+      </div>
+       <div class='row'>
+       <div class='header' id="headerOwned1">
+         Owned
+        </div><div class='items'>
+          <input type=range class="slider" id="owned1" min="0" max="100" value="0">
+        </div>
+      </div>
+       <div class='row'>
+       <div class='header' id="headerTaken1">
+         Taken
+        </div><div class='items'>
+          <input type=range class="slider" id="taken1" min="0" max="100" value="0">
+        </div>
+      </div>
+      <div class='row'>
+        <div class='header' id="headerOther1">
+         Other
+        </div><div class='items'>
+          <input type=range class="slider" id="other1" min="0" max="100" value="0">
+        </div>
+      </div>
+      <div class='row'>
+       <div class='header'>
+        Controls
+        </div><div class='items'>
+          <input type=checkbox id="display1" checked/>
+          <label for="display1">Display</label>
+          <input type=button id="copy1" onclick="copy1();"/>
+          <label for="copy1">Copy</label>
+        </div>
+      </div>
+    </div><div class='controller' id ="controller2" oninput="update()">
+      <div class='row'>
+        <div class='header'>
+         Level
+        </div><div class='items'>
+          <input type="radio" name="level2" value="1" id="level2_1" checked/>
+          <label for="level2_1">1</label>
+          <input type="radio" name="level2" value="2" id="level2_2"/>
+          <label for="level2_2">2</label>
+          <input type="radio" name="level2" value="3" id="level2_3"/>
+          <label for="level2_3">3</label>
+          <input type="radio" name="level2" value="4" id="level2_4"/>
+          <label for="level2_4">4</label>
+          <input type="radio" name="level2" value="5" id="level2_5"/>
+          <label for="level2_5">5</label>
+          <input type="radio" name="level2" value="6" id="level2_6"/>
+          <label for="level2_6">6</label>
+          <input type="radio" name="level2" value="7" id="level2_7"/>
+          <label for="level2_7">7</label>
+          <input type="radio" name="level2" value="8" id="level2_8"/>
+          <label for="level2_8">8</label>
+          <input type="radio" name="level2" value="9" id="level2_9"/>
+          <label for="level2_9">9</label>
+        </div>
+      </div>
+       <div class='row'>
+       <div class='header' id="headerCost1">
+          Cost
+       </div><div class='items'>
+          <input type="radio" name="cost2" value="1" id="cost2_1" checked/>
+          <label for="cost2_1">1</label>
+          <input type="radio" name="cost2" value="2" id="cost2_2"/>
+          <label for="cost2_2">2</label>
+          <input type="radio" name="cost2" value="3" id="cost2_3"/>
+          <label for="cost2_3">3</label>
+          <input type="radio" name="cost2" value="4" id="cost2_4"/>
+          <label for="cost2_4">4</label>
+          <input type="radio" name="cost2" value="5" id="cost2_5"/>
+          <label for="cost2_5">5</label>
+        </div>
+      </div>
+       <div class='row'>
+       <div class='header'>
+         Star Level
+        </div><div class='items'>
+          <input type="radio" name="star2" value="1" id="star2_1" checked/>
+          <label for="star2_1">1</label>
+          <input type="radio" name="star2" value="2" id="star2_2"/>
+          <label for="star2_2">2</label>
+          <input type="radio" name="star2" value="3" id="star2_3"/>
+          <label for="star2_3">3</label>
+        </div>
+      </div>
+       <div class='row'>
+       <div class='header' id="headerOwned2">
+         Owned
+        </div><div class='items'>
+          <input type=range class="slider" id="owned2" min="0" max="100" value="0">
+        </div>
+      </div>
+       <div class='row'>
+       <div class='header' id="headerTaken2">
+         Taken
+        </div><div class='items'>
+          <input type=range class="slider" id="taken2" min="0" max="100" value="0">
+        </div>
+      </div>
+      <div class='row'>
+        <div class='header' id="headerOther2">
+         Other
+        </div><div class='items'>
+          <input type=range class="slider" id="other2" min="0" max="100" value="0">
+        </div>
+      </div>
+      <div class='row'>
+       <div class='header'>
+        Controls
+        </div><div class='items'>
+          <input type=checkbox id="display2"/>
+          <label for="display2">Display</label>
+          <input type=button id="copy2" onclick="copy2();"/>
+          <label for="copy2">Copy</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <svg/>
+</div>
+<div id='tooltip' style="visibility: hidden">
+  <div id='tooltipRolls'>rolls = 20</div>
+  <div id='tooltipProb1'>p(1) = 1</div>
+  <div id='tooltipProb2'>p(2) = 2</div>
+</div>
+<div id="copyrightFooter">Copyright © <div id="year">2021</div> <a href="shaco.gg">shaco.gg</a></div>
+</div>
+</body>
+</html>
