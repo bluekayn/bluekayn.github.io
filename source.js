@@ -29,7 +29,6 @@ function factorial(x) {
 function choose(n, k) {
 	if (n == k) return 1;
   if (k == 0) return 1;
-
 	return factorial(n) / (factorial(k) * factorial(n - k));
 }
 
@@ -81,6 +80,48 @@ function generateData(k, n, m, l, c, bins) {
     data.push(obj);
   }
   return data;
+}
+
+function zipData(data1, data2, both) {
+  for (var bin = 0; bin < data1.length; bin++) {
+    var min1 = 0;
+    var max1 = 0;
+    var min2 = 0;
+    var max2 = 0;
+    const p1 = data1[bin].y;
+    const p2 = data2[bin].y; 
+    if (both) {
+      if (p1 == p2) {
+        // If they are the same, just draw p1
+        min1 = 0
+        max1 = p1
+        min2 = 0
+        max2 = 0
+      }
+      if (p1 > p2) {
+        // If p1 is taller then clip its bottom with p2.
+        min1 = p2;
+        max1 = p1;
+        min2 = 0;
+        max2 = p2;
+      } else {
+        // If p2 is taller then clip its bottom with p1.
+        min1 = 0;
+        max1 = p1;
+        min2 = p1;
+        max2 = p2;
+      }
+    } else {
+      min1 = 0;
+      max1 = p1;
+      min2 = 0;
+      max2 = p2;
+    }
+    data1[bin].min = min1;
+    data1[bin].max = max1;
+    data2[bin].min = min2;
+    data2[bin].max = max2;
+  }
 }
 
 function getSelectedRadio(name) {
@@ -334,7 +375,6 @@ function updateNodes(nodes, data) {
 	nodes.data(data);
 }
 
-
 function mouseover(d, i) {
   tooltip.style("visibility", "visible");
 }
@@ -384,8 +424,8 @@ function mousemove(d, i) {
 function redrawNodes(nodes, xScale, yScale, height, color, display) {
 	nodes.
   	attr('x', (s) => xScale(s.x))
-   .attr('y', (s) => yScale(s.y))
-   .attr('height', (s) =>   height - yScale(s.y))
+   .attr('y', (s) => yScale(s.max))
+   .attr('height', (s) =>  height - yScale(s.max - s.min))
    .attr('width', xScale(1))
    .style('display', display ? 'inline-block' : 'none')
    .style("fill", color);
@@ -410,8 +450,13 @@ function update() {
   const color1 = getCSSVariable("--c1-plot");
   const color2 = getCSSVariable("--c2-plot");
 
+  const both = p1.display && p2.display;
+
+  zipData(data1, data2, both);
+
   updateAndRedrawNodes(
-  	chart.nodes1, data1, chart.xScale, chart.yScale, chart.height, color1, p1.display);
+    chart.nodes1, data1, chart.xScale, chart.yScale, chart.height, color1, p1.display);
+    
   updateAndRedrawNodes(
   	chart.nodes2, data2, chart.xScale, chart.yScale, chart.height, color2, p2.display);
 }
