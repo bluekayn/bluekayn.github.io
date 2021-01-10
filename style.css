@@ -32,7 +32,8 @@
   --tooltip-fg: #000000;
   --tooltip-bg: #ffffff;
 
-  --header-fg: #ffffff;
+  --header-fg: #000000;
+  --header-fg: #dddddd;
   --header-bg: #50514f;
   --header-border: #1f1f1e;
 }
@@ -82,6 +83,7 @@ html, body {
   padding: 0.5em;
   font-size: 2em;
   border-bottom: 5px solid var(--header-border);
+  text-shadow: 1px 1px var(--c2-bg);
   background: var(--header-bg);
   color: var(--header-fg);
 }
