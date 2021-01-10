@@ -421,19 +421,19 @@ function mousemove(d, i) {
 }
 
 
-function redrawNodes(nodes, xScale, yScale, height, color, display, offset) {
+function redrawNodes(nodes, xScale, yScale, height, color, display) {
 	nodes.
-  	attr('x', (s) => xScale(s.x) + xScale(1) * 0.1 * offset)
+  	attr('x', (s) => xScale(s.x) + xScale(1))
    .attr('y', (s) => yScale(s.y))
    .attr('height', (s) =>  height - yScale(s.y))
-   .attr('width', xScale(1) * 0.8)
+   .attr('width', xScale(1))
    .style('display', display ? 'inline-block' : 'none')
    .style("fill", color);
 }
 
-function updateAndRedrawNodes(nodes, data, xScale, yScale, height, color, display, offset) {
+function updateAndRedrawNodes(nodes, data, xScale, yScale, height, color, display) {
   updateNodes(nodes, data);
-  redrawNodes(nodes, xScale, yScale, height, color, display, offset);
+  redrawNodes(nodes, xScale, yScale, height, color, display);
 }
 
 function getCSSVariable(name) {
@@ -455,10 +455,10 @@ function update() {
   zipData(data1, data2, both);
 
   updateAndRedrawNodes(
-    chart.nodes1, data1, chart.xScale, chart.yScale, chart.height, color1, p1.display, 0);
+    chart.nodes1, data1, chart.xScale, chart.yScale, chart.height, color1, p1.display);
     
   updateAndRedrawNodes(
-  	chart.nodes2, data2, chart.xScale, chart.yScale, chart.height, color2, p2.display, 1);
+  	chart.nodes2, data2, chart.xScale, chart.yScale, chart.height, color2, p2.display);
 }
 
 
