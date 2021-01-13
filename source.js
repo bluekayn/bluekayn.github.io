@@ -312,7 +312,7 @@ const yScale = d3.scaleLinear()
   .domain([0, 1]);
 
 chart.append('g')
-  .call(d3.axisLeft(yScale));
+  .call(d3.axisLeft(yScale).tickFormat((d, i) => Math.round(d * 100) + "%"));
 
 const xScale = d3.scaleLinear()
   .range([0, width])
