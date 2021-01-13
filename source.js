@@ -423,7 +423,7 @@ function mousemove(d, i) {
 
 function redrawNodes(nodes, xScale, yScale, height, color, display) {
 	nodes.
-  	attr('x', (s) => xScale(s.x) + xScale(1))
+  	attr('x', (s) => xScale(s.x))
    .attr('y', (s) => yScale(s.max))
    .attr('height', (s) =>  height - yScale(s.max - s.min))
    .attr('width', xScale(1))
