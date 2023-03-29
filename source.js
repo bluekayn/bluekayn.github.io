@@ -15,7 +15,7 @@ const SHOP_PMF = [
 const COPIES = [29, 22, 18, 12, 10];
 
 // CHAMPS[c] is the number of unique champions with cost `c`.
-const CHAMPIONS = [13, 13, 13, 11, 8];
+const CHAMPIONS = [13, 13, 13, 12, 8];
 
 function factorial(x) {
 	if (x == 0) return 0.0;
